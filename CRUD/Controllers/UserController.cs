@@ -25,10 +25,18 @@ namespace CRUD.Controllers
         {           
             using (UserEntities ue = new UserEntities())
             {
+                if (ue.users.Any(x => x.Username == u.Username))
+                {
+                    ViewBag.WarningMessage = "UserName Already Exist";
+                    return View("AddOrEdit");
+                }
                 ue.users.Add(u);
                 ue.SaveChanges();
             }
-            return View(); //Always remember to return view when adding [HttpGet][HttpPost] manually inside controller otherwise it will thro error in Actionresult methodname*
+            ModelState.Clear();
+            ViewBag.SuccessMessage = "Regisered Successfully";
+            return View("AddOrEdit"); 
+            //Always remember to return view when adding [HttpGet][HttpPost] manually inside controller otherwise it will thro error in Actionresult methodname*
             
         }
     }
