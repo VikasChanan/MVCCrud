@@ -2,6 +2,10 @@
 
 @{
     ViewBag.Title = "Create";
+    if(Session["id"] == null)
+    {
+        Response.Redirect("~/User/login");
+    }
 }
 
 <h2>Create</h2>

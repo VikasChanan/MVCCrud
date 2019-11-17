@@ -7,10 +7,41 @@ using CRUD.Models;
 using System.Data;
 
 
+
 namespace CRUD.Controllers
 {
     public class UserController : Controller
     {
+        //For login
+        [HttpGet]
+        public ActionResult login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult loginAuthorize(CRUD.Models.user u)
+        {
+           
+            using (UserEntities ues = new UserEntities())
+            {
+                var getuser = ues.users.Where(x => x.Username == u.Username && x.Password == u.Password).FirstOrDefault();
+                if(getuser == null)
+                {
+                    u.loginErrorMessage = "Incorrest Credientials"; ;
+                    return View("login", u);
+                }
+                else
+                {
+                    Session["UserID"] = getuser.id;
+                    return RedirectToAction("Index", "Customer");
+                }
+            }
+                //var sessiondetail = ue.
+                return View();
+        }
+        //Registration Section
+
         [HttpGet]
         public ActionResult AddOrEdit(int id = 0)
         {

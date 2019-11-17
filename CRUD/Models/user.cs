@@ -21,20 +21,24 @@ namespace CRUD.Models
         public int id { get; set; }
 
         [Required(ErrorMessage = "Required UserName")]
+        [DisplayName("User-Name")]
         public string Username { get; set; }
 
 
         [Required(ErrorMessage ="Required Password")]
         [DataType(DataType.Password)]   
+        [DisplayName("Password")]
         public string Password { get; set; }
         
         
         [DataType(DataType.Password)]
-        [DisplayName("ConfirmPassword")] 
+        [DisplayName("Confirm Password")] 
         [Compare("Password")]
         public String ConfirmPassword { get; set; }
 
        
         public Nullable<bool> IsAdmin { get; set; }
+
+        public String loginErrorMessage { get; set; }
     }
 }
