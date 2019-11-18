@@ -1,5 +1,5 @@
 ﻿/*This Module ie"Customer" is created with out using c# MVC Entity Frame Work.
- Its a plain mvc using pure dataTable Queries
+ Its a plain mvc using pure SQL Queries
  Creator Name: "Vikas R Chanan"
  Date: 18 November 2019
  Description: first time learned C# MVC*/
@@ -82,8 +82,7 @@ namespace CRUD.Controllers
             }     
             else
             {
-                return RedirectToAction("ViewProductDe" +
-                    "tails");
+                return RedirectToAction("ViewProductDetails");
             }
         }
 
