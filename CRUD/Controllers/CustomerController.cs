@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*This Module ie"Customer" is created using c# MVC Entity Frame Work.
+Creator Name: "Vikas R Chanan"
+Date: 17 November 2019
+Description: first time learned C# MVC*/
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;

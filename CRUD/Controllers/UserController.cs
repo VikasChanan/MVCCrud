@@ -38,7 +38,7 @@ namespace CRUD.Controllers
                 }
             }
                 //var sessiondetail = ue.
-                return View();
+                
         }
         //Registration Section
 
